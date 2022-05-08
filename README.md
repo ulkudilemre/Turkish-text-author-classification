@@ -2,14 +2,14 @@
 
 In the current project, it has been decided to switch to the ***Zemberek*** library, which allows us to perform morphological analysis in Turkish texts, instead of the NLTK library, which was previously used as a natural language processing library. Since Zemberek is Java-based and the project is Python-based, Zemberek has been integrated into the project with the help of the Jpype library.
 
-There are ***2415 texts*** belonging to ***204 authors*** in the data obtained by previous data scraping. The data is uneven: the number of authors with less than 15 texts is 95, and the total number of texts for these authors is 328. The number of authors with less than 15 columns is high, but these data were excluded from the data set because the total number of texts was not large.
+There are ***2415 texts*** belonging to ***204 authors*** in the data obtained by previous data scraping. The data is uneven: the number of authors with less than 15 texts is 95, and the total number of texts for these authors is 328. The number of authors with less than 15 texts is high, but these data were excluded from the data set because the total number of texts was not large.
 
 The processes applied to prepare the data in text format for machine learning are as follows; 
 1. converting the text to lowercase
-2. separating the word markers 
+2. separating the word token 
 3. removing the roots of the words by removing the suffixes
 4. removing the stopword words
-5. separating the sentence markers
+5. separating the sentence token
 6. extracting the root length distributions
 7. extracting the sentence length distributions on the basis of words
 8. extracting the word richness ratios
