@@ -24,7 +24,7 @@ The vectors of ***TF-IDF, word bag vectors, word, sentence distributions*** and 
 
 77% of the data was divided into two as education (1398 columns), 33% as test (689 columns). The SVM model in the Scikit-learn library was trained on the default parameters and the accuracy scores obtained with different combinations of the features were compared. The highest accuracy rate of 57.4% was achieved. With the features that have the best accuracy rate with SVM, the ***MLP Classifier*** (Multi-Layer Perceptron, Multi-Layer Perceptron), which is also in the ***Scikit-learn*** library, was trained on the neural network model default parameters, and an accuracy rate of 77% was achieved.
 
-Then, the ***RandomizedSearchCV*** function in the **Scikit-learn** library was used in the training and test data to avoid deviations and errors due to data distribution, and to determine the most suitable parameters for the data in the **SVM** model. With the log-uniform function in the SciPy library, which creates a continuous probabilistic distribution, the C values were selected between 1-1000, the gamma value was between 0.0001-0.01, and hyper-parameters were searched with 10-fold cross-validation in a total of 30 iterations. The highest accuracy score is ***C = 216 in the linear kernel with 85%***. There is no gamma value in the linear kernel.
+Then, the ***RandomizedSearchCV*** function in the **Scikit-learn** library was used in the training and test data to avoid deviations and errors due to data distribution, and to determine the most suitable parameters for the data in the **SVM** model. With the log-uniform function in the SciPy library, which creates a continuous probabilistic distribution, the C values were selected between 1-1000, the gamma value was between 0.0001-0.01, and hyper-parameters were searched with 10-fold cross-validation in a total of 30 iterations. The highest accuracy score is ***C = 216 in the linear kernel with 80%***. There is no gamma value in the linear kernel.
 
 # Türkçe
 
@@ -61,4 +61,4 @@ varsayılan parametrelerinde eğitilerek %77 doğruluk oranına ulaşılmıştı
 Ardından eğitim ve test verilerinde, veri dağılıma bağlı sapmalar ve hatalardan kaçınmak, ayrıca SVM modelinde verilere en uygun parametreleri belirlemek için 
 Scikit-learn kütüphanesinde bulunan ***RandomizedSearchCV*** fonksiyonu kullanılmıştır. Sürekli bir olasılıksal dağılım oluşturan SciPy kütüphanesinde bulunan log-uniform 
 fonksiyonu ile C değerleri 1-1000 arasında, gamma değeri 0.0001-0.01 arasında seçilmiş ve toplam 30 iterasyonda, 10 kat çapraz doğrulama ile hiper-parametreler 
-aranmıştır. En yüksek doğruluk puanı ***%85 ile linear çekirdekte C = 216 değeridir***. Linear çekirdekte gamma değeri bulunmamaktadır.
+aranmıştır. En yüksek doğruluk puanı ***%80 ile linear çekirdekte C = 216 değeridir***. Linear çekirdekte gamma değeri bulunmamaktadır.
