@@ -139,8 +139,11 @@ with open('./model/count_vectorize.pkl', 'rb') as f:
 with open('./model/tfidf_vector.pkl', 'rb') as f:
     tfidf_vector = pickle.load(f)
     
-with open('./model/dict_vector.pkl', 'rb') as f:
-    dict_vector = pickle.load(f)
+with open('./model/wtDict_vector.pkl', 'rb') as f:
+    wtDict_vector = pickle.load(f)
+    
+with open('./model/stDict_vector.pkl', 'rb') as f:
+    stDict_vector = pickle.load(f)
     
 with open('./model/SVM.pkl', 'rb') as f:
     svm = pickle.load(f)
@@ -169,7 +172,7 @@ def processing(text):
     
     
     # Vectorizing
-    normalizedLabels = scaler.transform(data.loc[:, 'lttr':'numUpper'])
+    normalizedLabels = scaler.transform(data.loc[:, 'ttr':'numUpper'])
 
     x = np.array(data.lemma_token)
     for i in range(0, len(data.lemma_token)):
@@ -180,8 +183,8 @@ def processing(text):
     
     tfidf_matrix = tfidf_vector.transform(x).toarray()
     
-    wtLenDist_matrix = dict_vector.transform(data.wtLenDist).toarray()
-    stLenDist_matrix = dict_vector.transform(data.stLenDist).toarray()
+    wtLenDist_matrix = wtDict_vector.transform(data.wtLenDist).toarray()
+    stLenDist_matrix = stDict_vector.transform(data.stLenDist).toarray()
     wtLenDist_matrix = (wtLenDist_matrix - wtLenDist_matrix.min())/(wtLenDist_matrix.max() - wtLenDist_matrix.min())
     stLenDist_matrix = (stLenDist_matrix - stLenDist_matrix.min())/(stLenDist_matrix.max() - stLenDist_matrix.min())
     
@@ -201,7 +204,7 @@ sg.theme('BluePurple')
 layout = [  [sg.Text('Köşe yazısını giriniz.')],
             [sg.Multiline(size=(50, 20))],
             [sg.Button('Yazarı bul')],
-            [sg.Text('Yazar: '), sg.Text(size=(15,1), key='-OUTPUT-')]]
+            [sg.Text('Yazar: '), sg.Text(size=(30,1), key='-OUTPUT-')]]
 
 
 window = sg.Window('Yazar Bulma', layout)
